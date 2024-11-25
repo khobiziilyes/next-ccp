@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { ThemeProvider } from "./theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 
 export function AppProvider({ children }: React.PropsWithChildren) {
   return (
@@ -12,6 +13,7 @@ export function AppProvider({ children }: React.PropsWithChildren) {
       disableTransitionOnChange
     >
       {children}
+      <Toaster />
     </ThemeProvider>
   );
 }
