@@ -6,7 +6,7 @@ import {
 
 export function AppFooter() {
   return (
-    <footer className="mt-8 bg-secondary p-4 text-secondary-foreground">
+    <footer className="mt-8 bg-primary-foreground p-4 text-secondary-foreground">
       <div className="container mx-auto text-center">
         <p>
           &copy; {new Date().getUTCFullYear()} {AppName}@{AppVersion} by{" "}
