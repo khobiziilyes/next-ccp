@@ -3,6 +3,7 @@
 import * as React from "react";
 import { ThemeProvider } from "./theme-provider";
 import { Toaster } from "@/components/ui/toaster";
+import { Analytics } from "@vercel/analytics/next";
 
 export function AppProvider({ children }: React.PropsWithChildren) {
   return (
@@ -14,6 +15,7 @@ export function AppProvider({ children }: React.PropsWithChildren) {
     >
       {children}
       <Toaster />
+      <Analytics />
     </ThemeProvider>
   );
 }
