@@ -1,8 +1,12 @@
 import Link from "next/link";
-import { Github } from "lucide-react";
-import { name as AppName, homepage as RepoURL } from "@/../package.json";
+import packageInfo from "@/../package.json";
+
 import { ThemeToggler } from "@/components/theme-toggler";
 import { Button } from "@/components/ui/button";
+import { Github } from "lucide-react";
+
+const { name: AppName, repository } = packageInfo;
+const RepoURL = repository.url.slice(4, -4);
 
 export function AppHeader() {
   return (

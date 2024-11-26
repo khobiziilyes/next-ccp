@@ -1,8 +1,6 @@
-import {
-  name as AppName,
-  version as AppVersion,
-  author as AppAuthor,
-} from "@/../package.json";
+import packageInfo from "@/../package.json";
+
+const { name: AppName, version: AppVersion, author: AppAuthor } = packageInfo;
 
 export function AppFooter() {
   return (

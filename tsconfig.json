@@ -15,7 +15,7 @@
     "checkJs": true,
 
     /* Bundled projects */
-    "lib": ["dom", "dom.iterable", "ES2022"],
+    "lib": ["dom", "dom.iterable", "ES2022", "webworker"],
     "noEmit": true,
     "module": "ESNext",
     "moduleResolution": "Bundler",
@@ -38,6 +38,6 @@
     "**/*.js",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "src/components/ui"],
-  "types": ["@testing-library/jest-dom"]
+  "exclude": ["node_modules", "src/components/ui", "public/sw.js"],
+  "types": ["@testing-library/jest-dom", "@serwist/next/typings"]
 }
