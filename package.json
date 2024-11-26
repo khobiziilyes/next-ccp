@@ -1,6 +1,11 @@
 {
   "name": "next-ccp",
   "version": "0.1.0",
+  "author": {
+    "name": "Ilyes K.",
+    "email": "khobizi.ilyes@gmail.com"
+  },
+  "homepage": "https://github.com/khobiziilyes/next-ccp",
   "private": true,
   "type": "module",
   "scripts": {
