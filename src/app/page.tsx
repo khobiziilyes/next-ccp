@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 
 import { Button } from "@/components/ui/button";
@@ -136,7 +137,7 @@ export default function HomePage() {
   return (
     <main className="container mx-auto flex-grow p-4">
       <div className="grid grid-cols-1 items-start gap-4 xl:grid-cols-3">
-        <Card className="col-span-1">
+        <Card className={cn("col-span-1", !saved.length && "xl:col-start-2")}>
           <CardHeader>
             <CardTitle>Calculator</CardTitle>
           </CardHeader>
