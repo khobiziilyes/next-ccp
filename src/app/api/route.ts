@@ -9,7 +9,10 @@ import { bot } from "@/lib/telegraf/bot";
 const debug = createDebug("bot:dev");
 const webhookEndpoint = `${process.env.VERCEL_PROJECT_PRODUCTION_URL ?? ""}/api`;
 
-export default async function handle(req: NextRequest) {
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
+export async function GET() {
   try {
     debug("Bot runs in production mode");
 
@@ -25,11 +28,6 @@ export default async function handle(req: NextRequest) {
       debug(`setting webhook: ${webhookEndpoint}`);
       await bot.telegram.setWebhook(`${webhookEndpoint}`);
     }
-
-    if (req.method === "POST")
-      waitUntil(
-        bot.handleUpdate(req.body as unknown as Update).catch(console.error),
-      );
 
     return NextResponse.json(
       { ok: true },
@@ -47,4 +45,17 @@ export default async function handle(req: NextRequest) {
       },
     );
   }
+}
+
+export async function POST(req: NextRequest) {
+  const body = (await req.json()) as Update;
+
+  waitUntil(bot.handleUpdate(body).catch(console.error));
+
+  return NextResponse.json(
+    { ok: true },
+    {
+      status: 200,
+    },
+  );
 }
