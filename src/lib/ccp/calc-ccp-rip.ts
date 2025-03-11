@@ -23,7 +23,7 @@ export function calcFullRip(ccp: string): string {
 }
 
 export function calcFullCcp(ccp: string): string {
-  const fullRip = calcCcpRip(ccp);
+  const fullRip = calcFullRip(ccp);
 
   return fullRip.slice(5);
 }
