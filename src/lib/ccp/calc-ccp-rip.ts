@@ -1,4 +1,4 @@
-import { EMPTY_MOD, MAGIC_NUM } from "@/consts";
+import { EMPTY_CCP, EMPTY_MOD, MAGIC_NUM } from "@/consts";
 
 // This function is responsible for generating the CCP Rip, from the CCP number.
 // I've found the algorithm on an online forum, the code is written in VBA.
@@ -13,4 +13,17 @@ export function calcCcpRip(ccp: string): string {
   const rip = String(ripInt).padStart(2, "0");
 
   return rip;
+}
+
+export function calcFullRip(ccp: string): string {
+  const rip = calcCcpRip(ccp);
+  const fullRip = EMPTY_CCP + BigInt(`${ccp}${rip}`);
+
+  return fullRip.toString();
+}
+
+export function calcFullCcp(ccp: string): string {
+  const fullRip = calcCcpRip(ccp);
+
+  return fullRip.slice(5);
 }
